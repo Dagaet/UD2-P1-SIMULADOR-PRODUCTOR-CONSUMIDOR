@@ -4,9 +4,11 @@ import net.salesianos.objects.Restaurant;
 
 public class Farmer extends Thread {
     private Restaurant restaurant;
+    private Integer vegetablesPlanted;
 
-    public Farmer (Restaurant restaurant) {
+    public Farmer (Restaurant restaurant, Integer vegetablesPlanted) {
         this.restaurant = restaurant;
+        this.vegetablesPlanted = vegetablesPlanted;
     }
 
     private String[] vegetables = {"lettuce", "cabbage", "onion", "spinach", "potato", "celery", "asparagus", "radish", "broccoli", "artichoke", "tomato", "cucumber", "eggplant", "carrot", "green bean"};
@@ -16,7 +18,7 @@ public class Farmer extends Thread {
     
     @Override
     public void run() {
-        while (restaurant.getVegetables() < restaurant.getMaxVegetables()) {
+        for (int i = 0; i < vegetablesPlanted; i++) {
             int valueNumber = (int) Math.floor(Math.random() * vegetables.length);
             System.out.println("The vegetable " + vegetables[valueNumber] + " is growing. It will take " + timers[valueNumber] + " seconds.");
             try {
@@ -24,8 +26,8 @@ public class Farmer extends Thread {
                 restaurant.receiveVegetables();
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }
-        }
+            }  
+        } 
     }
 
 }

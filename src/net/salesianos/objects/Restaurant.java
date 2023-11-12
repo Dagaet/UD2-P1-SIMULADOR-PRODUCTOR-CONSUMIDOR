@@ -2,7 +2,6 @@ package net.salesianos.objects;
 
 public class Restaurant {
     private int count = 0;
-    private final int MAX_VEGETABLES = 5;
 
     public synchronized void receiveVegetables() {
         count++;
@@ -16,9 +15,6 @@ public class Restaurant {
         count--;
     }
 
-    public int getMaxVegetables(){
-        return this.MAX_VEGETABLES;
-    }
     public int getVegetables() {
         return this.count;
     }
