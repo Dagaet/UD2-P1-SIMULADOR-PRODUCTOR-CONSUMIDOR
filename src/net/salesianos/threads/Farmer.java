@@ -16,7 +16,7 @@ public class Farmer extends Thread {
     
     @Override
     public void run() {
-        while (restaurant.getVegetables() < 5) {
+        while (restaurant.getVegetables() < restaurant.getMaxVegetables()) {
             int valueNumber = (int) Math.floor(Math.random() * vegetables.length);
             System.out.println("The vegetable " + vegetables[valueNumber] + " is growing. It will take " + timers[valueNumber] + " seconds.");
             try {
