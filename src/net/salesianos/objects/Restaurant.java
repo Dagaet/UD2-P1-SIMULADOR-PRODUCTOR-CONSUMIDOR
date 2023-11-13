@@ -5,11 +5,15 @@ import java.util.Queue;
 
 public class Restaurant {
     private Queue<String> warehouse = new LinkedList<String>();
-    // private String warehouse = 0;
+    private int warehouseSize = 0;
 
-    public synchronized void receiveVegetables(String vegetable) {
-        while (warehouse.size() >= 20) {
-            
+    public Restaurant(int warehouseSize) {
+        this.warehouseSize= warehouseSize;
+    }
+
+    public synchronized void receiveVegetables(String vegetable) throws InterruptedException {
+        while (warehouse.size() >= warehouseSize) {
+            wait();
         }
         warehouse.add(vegetable);
         notifyAll();

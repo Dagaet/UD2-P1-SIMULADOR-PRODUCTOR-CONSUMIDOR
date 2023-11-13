@@ -6,7 +6,7 @@ import net.salesianos.threads.Farmer;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Restaurant restaurant = new Restaurant();
+        Restaurant restaurant = new Restaurant(5);
 
         Farmer paco = new Farmer(restaurant, 10);
         Farmer ramon = new Farmer(restaurant, 10);
@@ -32,7 +32,6 @@ public class App {
             e.printStackTrace();
         }
 
-        System.out.println(restaurant.getVegetables());
         System.out.println("Restaurant Closed.");
     }
 }

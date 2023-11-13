@@ -24,6 +24,7 @@ public class Client extends Thread {
                 sleep(valueNumber * 1000);
                 restaurant.eatVegetables();
                 System.out.println("The client " + name +" is eating a vegetable");
+                System.out.println("    The restaurant warehouse has " + restaurant.getVegetables() + " vegetables.");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
