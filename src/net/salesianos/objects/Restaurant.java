@@ -1,22 +1,30 @@
 package net.salesianos.objects;
 
-public class Restaurant {
-    private int count = 0;
+import java.util.LinkedList;
+import java.util.Queue;
 
-    public synchronized void receiveVegetables() {
-        count++;
+public class Restaurant {
+    private Queue<String> warehouse = new LinkedList<String>();
+    // private String warehouse = 0;
+
+    public synchronized void receiveVegetables(String vegetable) {
+        while (warehouse.size() >= 20) {
+            
+        }
+        warehouse.add(vegetable);
         notifyAll();
     }
 
     public synchronized void eatVegetables() throws InterruptedException{
-        while (this.count <= 0) {
+        while (warehouse.size() <= 0) {
             wait();
         }
-        count--;
+        warehouse.poll();
+        notifyAll();
     }
 
     public int getVegetables() {
-        return this.count;
+        return warehouse.size();
     }
 
 }

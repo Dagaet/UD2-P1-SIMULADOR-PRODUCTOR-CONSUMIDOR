@@ -13,21 +13,21 @@ public class Farmer extends Thread {
 
     private String[] vegetables = {"lettuce", "cabbage", "onion", "spinach", "potato", "celery", "asparagus", "radish", "broccoli", "artichoke", "tomato", "cucumber", "eggplant", "carrot", "green bean"};
     
-    private Integer[] timers = {1,2,3,4,5,6,7,8,9,10,9,6,3,5,7};
+    private int getTime(){
+        return (int) Math.floor(Math.random() * ((15)+1));
+    }
 
-    
     @Override
     public void run() {
         for (int i = 0; i < vegetablesPlanted; i++) {
             int valueNumber = (int) Math.floor(Math.random() * vegetables.length);
-            System.out.println("The vegetable " + vegetables[valueNumber] + " is growing. It will take " + timers[valueNumber] + " seconds.");
+            System.out.println("The vegetable " + vegetables[valueNumber] + " is growing. It will take " + getTime() + " seconds.");
             try {
-                sleep(timers[valueNumber] * 1000);
-                restaurant.receiveVegetables();
+                sleep(getTime() * 1000);
+                restaurant.receiveVegetables(vegetables[valueNumber]);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }  
         } 
     }
-
 }
