@@ -16,17 +16,14 @@ public class Client extends Thread {
         this.eatingTime = eatingTime;
     }
 
-    private int getTime(){
-        return (int) Math.floor(Math.random() * (eatingTime)) +1;
-    }
-
     @Override
     public void run() {
         for (int i = 0; i < quantity; i++) {
+            int valueNumber = (int) Math.floor(Math.random() * ((eatingTime)+1));
             try {
-                System.out.println("The client " + name +" is eating a vegetable. It will take "+ eatingTime + " seconds.");
-                sleep(getTime() * 1000);
+                sleep(valueNumber * 1000);
                 restaurant.eatVegetables();
+                System.out.println("The client " + name +" is eating a vegetable");
                 System.out.println("    The restaurant warehouse has " + restaurant.getVegetables() + " vegetables.");
             } catch (InterruptedException e) {
                 e.printStackTrace();
