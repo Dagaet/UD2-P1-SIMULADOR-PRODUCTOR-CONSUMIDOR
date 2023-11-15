@@ -5,7 +5,7 @@ import net.salesianos.objects.Restaurant;
 public class Farmer extends Thread {
     private Restaurant restaurant;
     private Integer vegetablesPlanted;
-    private final Integer VEGETABLES_QUANTITY = 14;  
+    private final Integer VEGETABLES_QUANTITY = 4;  
 
     public Farmer (Restaurant restaurant, Integer vegetablesPlanted) {
         this.restaurant = restaurant;

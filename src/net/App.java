@@ -12,8 +12,8 @@ public class App {
         Farmer ramon = new Farmer(restaurant, 10);
 
         Client mrGentleman = new Client(restaurant, 5, "Mr. Gentleman", 6);
-        Client faustino = new Client(restaurant, 10, "Faustino", 4);
-        Client Loquendo = new Client(restaurant, 5, "Loquendo", 6);
+        Client faustino = new Client(restaurant, 10, "Faustino", 8);
+        Client Loquendo = new Client(restaurant, 5, "Loquendo", 7);
 
         paco.start();
         ramon.start();
