@@ -21,6 +21,8 @@ public class App {
         mrGentleman.start();
         Loquendo.start();
         
+        paco.setPriority(10);
+        ramon.setPriority(10);
 
         try {
             paco.join();
