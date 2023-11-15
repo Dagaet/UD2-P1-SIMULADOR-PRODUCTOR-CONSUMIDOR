@@ -8,26 +8,18 @@ public class App {
     public static void main(String[] args) throws Exception {
         Restaurant restaurant = new Restaurant(5);
 
-        Farmer paco = new Farmer(restaurant, 10);
-        Farmer ramon = new Farmer(restaurant, 10);
+        Farmer paco = new Farmer(restaurant, 5);
 
-        Client mrGentleman = new Client(restaurant, 5, "Mr. Gentleman", 6);
-        Client faustino = new Client(restaurant, 10, "Faustino", 4);
-        Client Loquendo = new Client(restaurant, 5, "Loquendo", 6);
+        Client mrGentleman = new Client(restaurant, 5, "Mr. Gentleman", 3);
+        
 
         paco.start();
-        ramon.start();
-        faustino.start();
         mrGentleman.start();
-        Loquendo.start();
         
 
         try {
             paco.join();
-            ramon.join();
-            faustino.join();
             mrGentleman.join();
-            Loquendo.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
