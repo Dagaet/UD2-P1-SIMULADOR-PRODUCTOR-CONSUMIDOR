@@ -36,6 +36,8 @@ This class extends _Thread_. It is created to define the client that is going to
 
 **Functions:**
 
+- **_getTime()_**: This function automatically creates a random number between the maximum time a client can take to eat and 1 and returns it.
+
 - **_run()_**: This is a function writen in the class _Thread_, we use it here with an Override to change some things when the thread starts. First we make a loop with the quantity of vegetables that the client is going to eat, then into this loop, we create a new random number between 1 and the maximum amount of time it can take to eat a vegetable, then we make the thread sleep to _"simulate"_ the eating time. After that we display that the client is eating and the actual state of the warehouse.
 
 ### Farmer:
